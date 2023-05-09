@@ -1,11 +1,12 @@
 import './App.css'
 import { useLoaderData, Link } from 'react-router-dom';
 import AllUsers from './components/AllUsers/AllUsers';
+import { useState } from 'react';
 
 function App() {
 
   const loadData = useLoaderData();
-  console.log(loadData);
+  const [users, setUsers] = useState(loadData)
 
   return (
     <div>
@@ -32,9 +33,11 @@ function App() {
               <tbody>
                 {/* row 1 */}
                 {
-                  loadData.map(user => <AllUsers
+                  users.map(user => <AllUsers
                     key={user._id}
                     user={user}
+                    users={users}
+                    setUsers={setUsers}
                   ></AllUsers>)
                 }
               </tbody>
