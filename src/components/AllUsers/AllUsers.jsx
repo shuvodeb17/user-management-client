@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const AllUsers = ({ user }) => {
     const { _id, name, email, gender, status } = user;
@@ -10,7 +11,9 @@ const AllUsers = ({ user }) => {
             <td>{gender}</td>
             <td>{status}</td>
             <td>
-                <button className='btn btn-primary'>Edit</button>
+                <Link to={`/update-user/${_id}`}>
+                    <button className='btn btn-primary'>Edit</button>
+                </Link>
                 <button className='btn btn-secondary ms-5'>Delete</button>
             </td>
         </tr>
